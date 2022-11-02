@@ -5,7 +5,7 @@ import { combineReducers } from 'redux'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import customers from './reducers/customers'
+import employees from './reducers/employees'
 import formState from './reducers/formState'
 import appState from './reducers/appState'
 import events from './reducers/events'
@@ -14,7 +14,7 @@ import login from './reducers/login';
 import App from './App'
 import * as serviceWorker from './serviceWorker';
 
-const appReducer = combineReducers({formState,appState,customers, events, login, registrations})
+const appReducer = combineReducers({formState,appState,employees, events, login, registrations})
 let store = createStore( appReducer )
 
 render(

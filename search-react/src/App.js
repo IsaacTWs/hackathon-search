@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import CustomerList from './components/CustomerList';
-import CustomerForm from './components/CustomerForm';
-import EventList from './components/EventList';
-import EventForm from './components/EventForm';
+import EmployeeList from './components/EmployeeList';
+import EmployeeForm from './components/EmployeeForm';
 import Login from './components/Login';
 import RegistrationList from './components/RegistrationList';
 import RegistrationForm from './components/RegistrationForm';
@@ -12,23 +10,12 @@ import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom
 
 import './App.css';
 
-function CustomersModule() {
+function EmployeesModule() {
   return (
     <div>
       <NavLinks></NavLinks>
-      <CustomerList></CustomerList>
-      <CustomerForm></CustomerForm>
-      <Footer></Footer>      
-    </div>
-  );
-}
-
-function EventsModule() {
-  return (
-    <div>
-      <NavLinks></NavLinks>
-      <EventList></EventList>
-      <EventForm></EventForm>
+      <EmployeeList></EmployeeList>
+      <EmployeeForm></EmployeeForm>
       <Footer></Footer>      
     </div>
   );
@@ -57,8 +44,7 @@ function HomePage() {
 function NavLinks(){
   return (
     <nav>
-    <Link type='button' className='button btn-primary btn-lg' to="/customers">Customers</Link>
-    <Link type='button' className='button btn-primary btn-lg'  to="/events">Events</Link>
+    <Link type='button' className='button btn-primary btn-lg' to="/employees">Employees</Link>
     <Link type='button' className='button btn-primary btn-lg' to="/registrations">Registrations</Link>
     </nav>
   );
@@ -84,8 +70,7 @@ function Custom(props){
     <Route exact path="/" render={() => (<Redirect to="/home"/>)}/>
     <Route path="/login" component={Login} />
     <Route path="/home" component={HomePage} />
-    <Route path="/customers" component={CustomersModule} />
-    <Route path="/events" component={EventsModule} />
+    <Route path="/employees" component={EmployeesModule} />
     <Route path="/registrations" component={RegistrationsModule} />
     </div>
     )
@@ -99,7 +84,7 @@ function App({login}) {
   return (
     <Router>
     <div className="App">
-        <h1>Events App</h1>
+        <h1>Enterprise Directory</h1>
         <Custom login={login} />
     </div>
     </Router>
