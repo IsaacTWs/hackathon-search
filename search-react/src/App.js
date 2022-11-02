@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 import EmployeeList from './components/EmployeeList';
 import EmployeeForm from './components/EmployeeForm';
 import Login from './components/Login';
-import RegistrationList from './components/RegistrationList';
-import RegistrationForm from './components/RegistrationForm';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
+/*
+import RegistrationList from './components/RegistrationList';
+import RegistrationForm from './components/RegistrationForm';
+*/
 
 import './App.css';
 
@@ -20,7 +22,7 @@ function EmployeesModule() {
     </div>
   );
 }
-
+/*
 function RegistrationsModule() {
   return (
     <div>
@@ -31,7 +33,7 @@ function RegistrationsModule() {
     </div>
   );
 }
-
+*/
 function HomePage() {
   return (
     <div>
@@ -71,7 +73,6 @@ function Custom(props){
     <Route path="/login" component={Login} />
     <Route path="/home" component={HomePage} />
     <Route path="/employees" component={EmployeesModule} />
-    <Route path="/registrations" component={RegistrationsModule} />
     </div>
     )
     

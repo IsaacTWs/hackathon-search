@@ -6,7 +6,7 @@ const employeeController = {
   // GET /api/employees/
   getAllEmployees: function(req, res) {
     Employee.find({}, '', function(err, employees){
-      if(err|| !employees || employees.length == 0 ) {
+      if(err|| !employees || employees.length === 0 ) {
         res.sendStatus(404)
       } else {
         res.status(200).send(dataCleaner.cleanEmployees(employees))
@@ -27,7 +27,7 @@ const employeeController = {
 
   // POST /api/employees/
   postEmployee: function(req, res) {
-    Employee.create({ EMPLOYEE_NAME: req.body.name, PASSWORD: req.body.password, EMAIL: req.body.email}).then(
+    Employee.create({ EMPLOYEE_NAME: req.body.name, PASSWORD: req.body.password, EMAIL: req.body.email, PHONE: req.body.phone, ROLE: req.body.role, LOCATION: req.body.location, SALARY: req.body.salary, MANAGER: req.body.manager}).then(
       (c) => { 
         res.location(`/api/employees/${c.EMPLOYEE_ID}`)
         res.sendStatus(201)

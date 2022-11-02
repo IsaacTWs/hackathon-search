@@ -1,4 +1,4 @@
-import { applyEmployeesUpdate, applyEventsUpdate,
+import { applyEmployeesUpdate,
     applyRegistrationsUpdate, loginSucceeded, loginFailed } from '../actions'
   
   class RestAPI {
@@ -113,7 +113,7 @@ import { applyEmployeesUpdate, applyEventsUpdate,
       });
     }
   
-    /* EVENT REQUESTS */
+    /* EVENT REQUESTS 
     getEvents = ( dispatch ) => {
       let myHeaders = new Headers(
         { "Content-Type": "application/json",
@@ -129,6 +129,7 @@ import { applyEmployeesUpdate, applyEventsUpdate,
         dispatch(applyEventsUpdate(events));
       });
     }
+    */
   
       postEvent = ( dispatch, event ) => {
           let url = "/api/events/";
