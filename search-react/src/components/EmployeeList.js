@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Employee from './Employee'
-import { selectEmployee, updateEmployeeFormUsage, getEmployees } from '../actions'
+import { selectEmployee, updateEmployeeFormUsage, getEmployee, getEmployees } from '../actions'
 
 class EmployeeList extends React.Component {
   constructor(props) {
@@ -27,9 +27,9 @@ class EmployeeList extends React.Component {
   render() {
     return (
       <div id='employee-list' className='card bg-light' >
-      <form onSubmit={(e) => this.props.onEmployeeSearch(e.target.value)}>
-        <input type="text" placeholder="Search"/>
-        <input type="submit" value="Submit" onClick={(e) => this.props.onEmployeeSearch(e.target.value)} />                                                                                        
+      <form>
+        <input type="text" placeholder="Search" onChange={(e) => this.props.fetchRules(this.props.fetched, e.target.value)}/>
+        <input type="submit" value="Submit" />                                                                                        
       </form>
         <h4 className='card-header'>List of Users/Employees</h4>
         <table className='table'>
@@ -73,10 +73,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchRules: (fetched) => {
+    fetchRules: (fetched, target) => {
       console.log('in EmployeeList.fetchRules:');
-      dispatch(getEmployees(dispatch));
-      fetched = true;
+      if (target !== undefined) {
+        dispatch(getEmployee(target));
+      } else {
+        dispatch(getEmployees(dispatch));
+        fetched = true;
+      }
     },
     onEmployeeClick: (employee) => {
       console.log('in EmployeeList.onEmployeeClick:' + JSON.stringify(employee));

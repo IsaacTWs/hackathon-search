@@ -26,7 +26,7 @@ const initial = {
           new_employee = { employee: Object.assign({}, action.employee) };
         } else {
           let id = Math.floor(1000 * (1 + Math.random(Date.now()))).toString();
-          new_employee = { employee: { id: id, name: "", email: "" } };
+          new_employee = { employee: { id: id, name: "", email: "", phone: "", role: "", manager: "", location: "", salary: "" } };
         }
   
         return Object.assign({}, state, new_employee, usage);

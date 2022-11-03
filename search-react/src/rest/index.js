@@ -182,6 +182,19 @@ import { applyEmployeesUpdate,
         dispatch(applyEmployeesUpdate(employees));
       });
     }
+
+    getEmployee = (dispatch, employee_name) => {
+      // var myInit = { method: 'GET', headers: this.myHeaders, mode: 'cors' };
+      var myInit = { method: 'GET', mode: 'cors' };
+      let promise = fetch(`/api/employees/byname/${employee_name}`, myInit);
+      promise.then((response) => {
+        return response.text();
+      }).then(function (text) {
+        console.log('getEmployee Request successful: ', text);
+        let employee = JSON.parse(text);
+        dispatch(applyEmployeesUpdate(employee));
+      });
+    }
   
     lookupEmployeeByName = ( username ) => {
       let url = "/api/employees/byname";

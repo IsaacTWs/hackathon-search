@@ -45,6 +45,12 @@ const employees = (state = initial, action, data) => {
             return newstate;
         }
 
+        case 'GET_EMPLOYEE': {
+            console.log("in reducer employees.GET_EMPLOYEE", state);
+            new RestAPI().getEmployee(action.dispatch);
+            return state;
+        }        
+
         case 'GET_EMPLOYEES': {
             console.log("in reducer employees.GET_EMPLOYEES", state);
             new RestAPI().getEmployees(action.dispatch);

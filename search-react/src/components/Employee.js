@@ -5,7 +5,7 @@ const Employee = ({ onClick, selectedId, employee }) => {
   return (
     <tr className={employee.id === selectedId ? "selected" : ""}
 		    onClick={(e) => onClick(e, employee.id)} >
-        <td>{employee.name}</td><td>{employee.email}</td>
+        <td>{employee.name}</td><td>{employee.email}</td><td>{employee.phone}</td><td>{employee.role}</td><td>{employee.manager}</td><td>{employee.location}</td><td>{employee.salary}</td>
     </tr>
   );
 }
