@@ -27,9 +27,9 @@ class EmployeeList extends React.Component {
   render() {
     return (
       <div id='employee-list' className='card bg-light' >
-      <form>
+      <form onSubmit={(e) => this.props.onEmployeeSearch(e.target.value)}>
         <input type="text" placeholder="Search"/>
-        <input type="submit" value="Submit" onClick={() => this.props.onEmployeeClick()} />                                                                                        
+        <input type="submit" value="Submit" onClick={(e) => this.props.onEmployeeSearch(e.target.value)} />                                                                                        
       </form>
         <h4 className='card-header'>List of Users/Employees</h4>
         <table className='table'>

@@ -28,8 +28,7 @@ const appState = (state = initial, action, data) => {
 
     case 'LOGIN_TO_APP': {
         // drc
-        let newState = {email: action.email, password:action.password, loginstate: action.loginstate, mode: 'login' };
-        // let newState = {username: action.username, password:action.password, loginstate:'logged-in', mode: 'login' };
+        let newState = {email: action.email, password:action.password, loginstate:'logged-in', mode: 'login' };
         console.log("in LOGIN_TO_APP");
         console.log( "login.LOGIN_TO_APP: " + JSON.stringify(newState));
         // drc
@@ -39,7 +38,7 @@ const appState = (state = initial, action, data) => {
     }
 
     case 'LOG_OUT': {
-        let newState = {username: 'none', password:'', loginstate: 'logged-out', mode: 'login' };
+        let newState = {email: 'none', password:'', loginstate: 'logged-out', mode: 'login' };
         console.log("in LOG_OUT");
         console.log( "login.LOG_OUT: " + JSON.stringify(newState));
         return  Object.assign({}, newState);
