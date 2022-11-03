@@ -47,7 +47,7 @@ const employees = (state = initial, action, data) => {
 
         case 'GET_EMPLOYEE': {
             console.log("in reducer employees.GET_EMPLOYEE", state);
-            new RestAPI().getEmployee(action.dispatch, action.target);
+            new RestAPI().getEmployee(action.dispatch);
             return state;
         }        
 
