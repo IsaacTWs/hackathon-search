@@ -31,6 +31,36 @@ const EmployeeForm = ({ employee, usage, handleChange, handleEmployeeEditClick,
                              value={employee.email} disabled={usage==='none'||usage==='view'} /></td>
                     </tr>
                     <tr>
+                        <td>Phone:</td>
+                        <td><input type={'text'} name={'phone'} onChange={handleChange}
+                             placeholder={'Phone'}
+                             value={employee.phone} disabled={usage==='none'||usage==='view'} /></td>
+                    </tr>
+                    <tr>
+                        <td>Role:</td>
+                        <td><input type={'text'} name={'role'} onChange={handleChange}
+                             placeholder={'Role'}
+                             value={employee.role} disabled={usage==='none'||usage==='view'} /></td>
+                    </tr>
+                    <tr>
+                        <td>Manager:</td>
+                        <td><input type={'text'} name={'manager'} onChange={handleChange}
+                             placeholder={'Manager'}
+                             value={employee.manager} disabled={usage==='none'||usage==='view'} /></td>
+                    </tr>
+                    <tr>
+                        <td>Location:</td>
+                        <td><input type={'text'} name={'location'} onChange={handleChange}
+                             placeholder={'Location'}
+                             value={employee.location} disabled={usage==='none'||usage==='view'} /></td>
+                    </tr>
+                    <tr>
+                        <td>Salary:</td>
+                        <td><input type={'text'} name={'salary'} onChange={handleChange}
+                             placeholder={'Salary'}
+                             value={employee.salary} disabled={usage==='none'||usage==='view'} /></td>
+                    </tr>
+                    <tr>
                         <td>Password:</td>
                         <td><input type={'text'} name={'password'} onChange={handleChange}
                              placeholder={'password'}

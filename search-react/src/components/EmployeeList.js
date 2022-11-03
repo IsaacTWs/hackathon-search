@@ -28,8 +28,7 @@ class EmployeeList extends React.Component {
     return (
       <div id='employee-list' className='card bg-light' >
       <form>
-        <input type="text" placeholder="Search" onChange={(e) => this.props.fetchRules(this.props.fetched, e.target.value)}/>
-        <input type="submit" value="Submit" />                                                                                        
+        <input type="text" placeholder="Search" onChange={(e) => this.props.fetchRules(this.props.fetched, e.target.value)}/>                                                                                       
       </form>
         <h4 className='card-header'>List of Users/Employees</h4>
         <table className='table'>
