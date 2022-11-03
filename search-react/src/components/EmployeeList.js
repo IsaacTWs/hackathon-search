@@ -76,6 +76,7 @@ const mapDispatchToProps = (dispatch) => {
       console.log('in EmployeeList.fetchRules:');
       if (target !== undefined) {
         dispatch(getEmployee(target));
+        fetched = false;
       } else {
         dispatch(getEmployees(dispatch));
         fetched = true;
