@@ -3,7 +3,7 @@ import { logOut } from '../actions';
 import { connect } from 'react-redux'
 
 const Footer = ({login, onLogOutClick}) =>{
-    let label = "User: " + login.username;
+    let label = "User: " + login.email;
     return (
     <div className='card bg-light footer'>
       <span style={{float:'right'}} >{label}</span>&nbsp;
