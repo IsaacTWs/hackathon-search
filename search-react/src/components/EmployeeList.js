@@ -73,7 +73,7 @@ class EmployeeList extends React.Component {
           </form>
         </div>
         <div id="employee-list" className="card bg-light" style={{width: "fit-content"}}>
-          <h4 className="card-header">List of Employees</h4>
+          <h4 className="card-header" >List of Employees</h4>
           <table className="table text-nowrap">
             <thead>
               <tr>

@@ -47,7 +47,7 @@ function NavLinks(){
   return (
     <nav>
     <Link type='button' className='button btn-primary btn-lg' to="/employees">Employees</Link>
-    <Link type='button' className='button btn-primary btn-lg' to="/registrations">Registrations</Link>
+    {/* <Link type='button' className='button btn-primary btn-lg' to="/registrations">Registrations</Link> */}
     </nav>
   );
 }
