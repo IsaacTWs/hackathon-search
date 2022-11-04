@@ -139,9 +139,9 @@ export const updateLoginFormObject = (field_name, field_value) => {
     }
   }
 
-  export const getEmployee = (dispatch) => {
+  export const getEmployeeName = (dispatch) => {
     return {
-      type: "GET_EMPLOYEE",
+      type: "GET_EMPLOYEE_NAME",
       dispatch,
     }
   }

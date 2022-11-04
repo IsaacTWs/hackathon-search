@@ -45,10 +45,21 @@ const employees = (state = initial, action, data) => {
             return newstate;
         }
 
-        case 'GET_EMPLOYEE': {
-            console.log("in reducer employees.GET_EMPLOYEE", state);
-            new RestAPI().getEmployee(action.dispatch);
-            return state;
+        case 'GET_EMPLOYEE_NAME': {
+            console.log("in reducer employees.GET_EMPLOYEE_NAME", state);
+            new RestAPI().getEmployeeName(action.dispatch);
+
+            let searchedEmployee = state.filter(
+                (employee) => {
+                    if (employee.name === action.dispatch ) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            );
+            let newstate = [...searchedEmployee]
+            return newstate;
         }        
 
         case 'GET_EMPLOYEES': {

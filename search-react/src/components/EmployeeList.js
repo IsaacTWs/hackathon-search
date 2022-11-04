@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Employee from './Employee'
-import { selectEmployee, updateEmployeeFormUsage, getEmployee, getEmployees } from '../actions'
+import { selectEmployee, updateEmployeeFormUsage, getEmployeeName, getEmployees } from '../actions'
 
 class EmployeeList extends React.Component {
   constructor(props) {
@@ -24,41 +24,92 @@ class EmployeeList extends React.Component {
   }
 
 
+
   render() {
     return (
-      <div id='employee-list' className='card bg-light' >
-      <form>
-        <input type="text" placeholder="Search" onChange={(e) => this.props.fetchRules(this.props.fetched, e.target.value)}/>                                                                                       
-      </form>
-        <h4 className='card-header'>List of Users/Employees</h4>
-        <table className='table'>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Role</th>
-              <th>Manager</th>
-              <th>Location</th>
-              <th>Salary</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.employees.map(employee =>
-              <Employee
-                key={employee.id}
-                employee={employee}
-                selectedId={this.props.appState.selectedId}
-                onClick={() => this.props.onEmployeeClick(employee)}
-              />
-            )}
-          </tbody></table>
+      <div>
+        <div
+          style={{
+            paddingTop: "10px",
+            paddingBottom: "10px",
+          }}
+        >
+          <form
+            class="form-group"
+            onSubmit={(e) => {
+              this.props.fetchRules(
+                this.props.fetched,
+                document.getElementById("searchword").value
+              );
+              e.preventDefault();
+            }}
+          >
+            <label>Search</label>
+
+            <input
+              id="searchword"
+              type="text"
+              class="form-control"             
+              placeholder="Enter a name"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  this.props.fetchRules(this.props.fetched, e.target.value);
+                }
+              }}
+            />
+            <button type="submit" class="d-inline btn btn-success" >
+              Submit
+            </button>
+            <input
+              class="btn btn-secondary"            
+              type="reset"
+              value="Reset"
+              onClick={(e) => {
+                this.props.fetchRules(
+                  this.props.fetched
+                );
+              }}
+            />
+          </form>
+        </div>
+        <div id="employee-list" className="card bg-light" style={{width: "fit-content"}}>
+          <h4 className="card-header">List of Employees</h4>
+          <table className="table text-nowrap">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Manager</th>
+                <th>Location</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.props.employees.map((employee) => (
+                <Employee
+                  key={employee.id}
+                  employee={employee}
+                  selectedId={this.props.appState.selectedId}
+                  onClick={() => this.props.onEmployeeClick(employee)}
+                />
+              ))}
+            </tbody>
+          </table>
           <hr></hr>
-          <p style={{'paddingLeft':'10px'}}>
-            <input style={{width:'fit-content'}} className='btn btn-primary' type={'button'} onClick={this.props.handleNewEmployeeClick} value="New Employee" />
+          <p style={{ paddingLeft: "10px" }}>
+            <input
+              style={{ width: "fit-content" }}
+              className="btn btn-primary"
+              type={"button"}
+              onClick={this.props.handleNewEmployeeClick}
+              value="New Employee"
+            />
           </p>
+        </div>
       </div>
-    )
+    );
   }
 }
 
@@ -74,9 +125,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchRules: (fetched, target) => {
       console.log('in EmployeeList.fetchRules:');
-      if (target !== undefined) {
-        dispatch(getEmployee(target));
-        fetched = false;
+      if (target) {
+        dispatch(getEmployeeName(target));
       } else {
         dispatch(getEmployees(dispatch));
         fetched = true;

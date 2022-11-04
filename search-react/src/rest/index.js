@@ -183,16 +183,16 @@ import { applyEmployeesUpdate,
       });
     }
 
-    getEmployee = (dispatch) => {
+    getEmployeeName = (dispatch) => {
       // var myInit = { method: 'GET', headers: this.myHeaders, mode: 'cors' };
       var myInit = { method: 'GET', mode: 'cors' };
       let promise = fetch(`/api/employees/byname/${dispatch}`, myInit);
       promise.then((response) => {
         return response.text();
       }).then(function (text) {
-        console.log('getEmployee Request successful: ', text);
-        let employee = JSON.parse(text);
-        dispatch(applyEmployeesUpdate(employee));
+        console.log('getEmployeeName Request successful: ', text);
+        // let employee = JSON.parse(text);
+        // dispatch(applyEmployeesUpdate(employee));
       });
     }
   
