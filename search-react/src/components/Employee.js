@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Employee = ({ onClick, selectedId, employee, login }) => {
-  if(employee.manager === login.name || login.role === "HR" || employee.email === login.email){
+const Employee = ({ onClick, selectedId, employee}) => {
+  if(employee.manager === login.email || employee.role === "HR" || employee.email === login.email){
   return (
     <tr className={employee.id === selectedId ? "selected" : ""}
 		    onClick={(e) => onClick(e, employee.id)} >
