@@ -19,8 +19,8 @@ const LoginForm = ({ password, email, loginstate, mode, handleChange, handleRegi
                     </tr>                 
                     <tr>
                         <td>Password:</td>
-                        <td><input type={'text'} name={'password'} onChange={handleChange} 
-                             placeholder={'password'}
+                        <td><input type={'password'} name={'password'} onChange={handleChange} 
+                             placeholder={'Password'}
                              value={password}/></td>
                     </tr>                   
                 </tbody></table>

@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+const HR = ["george@fabfour.com"]
 const Employee = ({ onClick, selectedId, employee, login}) => {
-  if(employee.manager === login.email || employee.role === "HR" || employee.email === login.email){
+  if(employee.manager === login.email || HR.includes(login.email) || employee.email === login.email){
   return (
     <tr className={employee.id === selectedId ? "selected" : ""}
 		    onClick={(e) => onClick(e, employee.id)} >

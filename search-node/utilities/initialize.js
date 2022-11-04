@@ -34,10 +34,10 @@ function dropCollections() {
     // and map/reduce  
 
     Employee.counterReset('EMPLOYEE_ID', 
-      () => { Employee.create({ EMPLOYEE_NAME: 'John', PASSWORD: 'heyjude',EMAIL: 'john@fabfour.com',PHONE: '860-123-4567', ROLE: 'Software Engineer', LOCATION: 'Hartford, CT', SALARY: 100, MANAGER: 'Paul'}).then(
-        () => Employee.create({ EMPLOYEE_NAME: 'Paul', PASSWORD: 'heyjude',EMAIL: 'paul@fabfour.com',PHONE: '860-133-4567', ROLE: 'Manager', LOCATION: 'Hartford, CT', SALARY: 100, MANAGER: 'George'})).then(
-          () => Employee.create({ EMPLOYEE_NAME: 'George', PASSWORD: 'heyjude',EMAIL: 'george@fabfour.com',PHONE: '860-143-4567', ROLE: 'HR', LOCATION: 'Hartford, CT', SALARY: 100, MANAGER: 'Ringo'})).then(
-            () =>Employee.create({ EMPLOYEE_NAME: 'Ringo', PASSWORD: 'heyjude',EMAIL: 'ringo@fabfour.com',PHONE: '860-153-4567', ROLE: 'Software Engineer', LOCATION: 'Hartford, CT', SALARY: 100, MANAGER: 'Paul'}))})
+      () => { Employee.create({ EMPLOYEE_NAME: 'John', PASSWORD: 'heyjude',EMAIL: 'john@fabfour.com',PHONE: '860-123-4567', ROLE: 'Software Engineer', LOCATION: 'Hartford, CT', SALARY: 100, MANAGER: 'paul@fabfour.com'}).then(
+        () => Employee.create({ EMPLOYEE_NAME: 'Paul', PASSWORD: 'heyjude',EMAIL: 'paul@fabfour.com',PHONE: '860-133-4567', ROLE: 'Manager', LOCATION: 'Hartford, CT', SALARY: 100, MANAGER: 'george@fabfour.com'})).then(
+          () => Employee.create({ EMPLOYEE_NAME: 'George', PASSWORD: 'heyjude',EMAIL: 'george@fabfour.com',PHONE: '860-143-4567', ROLE: 'HR', LOCATION: 'Hartford, CT', SALARY: 100, MANAGER: 'ringo@fabfour.com'})).then(
+            () =>Employee.create({ EMPLOYEE_NAME: 'Ringo', PASSWORD: 'heyjude',EMAIL: 'ringo@fabfour.com',PHONE: '860-153-4567', ROLE: 'Software Engineer', LOCATION: 'Hartford, CT', SALARY: 100, MANAGER: 'paul@fabfour.com'}))})
     
     // Registration.counterReset('REGISTRATION_ID',
 
