@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Employee from './Employee'
+import VisibleEmployee from './Employee.js'
 import { selectEmployee, updateEmployeeFormUsage, getEmployeeName, getEmployees } from '../actions'
 
 class EmployeeList extends React.Component {
@@ -88,7 +88,7 @@ class EmployeeList extends React.Component {
             </thead>
             <tbody>
               {this.props.employees.map((employee) => (
-                <Employee
+                <VisibleEmployee
                   key={employee.id}
                   employee={employee}
                   selectedId={this.props.appState.selectedId}

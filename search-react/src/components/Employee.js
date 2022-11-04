@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-const Employee = ({ onClick, selectedId, employee}) => {
+const Employee = ({ onClick, selectedId, employee, login}) => {
   if(employee.manager === login.email || employee.role === "HR" || employee.email === login.email){
   return (
     <tr className={employee.id === selectedId ? "selected" : ""}
@@ -25,4 +26,17 @@ Employee.propTypes = {
   employee: PropTypes.object.isRequired
 }
 
-export default Employee
+const mapStateToProps = (state) => {
+  console.log("state: " + JSON.stringify(state));
+  return {
+    login: state.login
+  }
+}
+
+
+
+const VisibleEmployee = connect(
+  mapStateToProps
+)(Employee)
+
+export default VisibleEmployee
